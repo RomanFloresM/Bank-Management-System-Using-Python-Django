@@ -5,5 +5,4 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('<str:user>/<str:passw>', views.login, name='login'),
-    path('menu', views.menu, name='menu'),
     ]
