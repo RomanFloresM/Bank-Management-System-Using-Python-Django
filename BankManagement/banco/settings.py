@@ -36,6 +36,7 @@ NPM_BIN_PATH = 'C:\\nvm4w\\nodejs\\npm.cmd'
 
 INSTALLED_APPS = [
     'cuenta.apps.CuentaConfig',
+    'menu.apps.MenuConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
