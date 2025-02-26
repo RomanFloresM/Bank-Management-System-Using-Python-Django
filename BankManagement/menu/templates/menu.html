@@ -11,7 +11,11 @@
   <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet">
 </head>
 <body>
-  {% component 'Sidebar'  %}
+  {% component 'Sidebar' as menu %}
+    {% call menu.Element ico='home' tittle='zzzz' url='zzzz'%}
+    {% endcall %}
+    {% call menu.Element ico='home' tittle='zzzz' url='zzzz'%}
+    {% endcall %}
   {% endcomponent %}
 </body>
 </html>
