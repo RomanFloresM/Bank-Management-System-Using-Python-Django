@@ -61,11 +61,7 @@
           class="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2"
         >
           <div class="flex h-16 shrink-0 items-center">
-            <img
-              class="h-8 w-auto"
-              src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-              alt="Your Company"
-            />
+            {{ self.usuario }}
           </div>
           <nav class="flex flex-1 flex-col">
             <ul role="list" class="flex flex-1 flex-col gap-y-7">
@@ -137,11 +133,7 @@
       class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6"
     >
       <div class="flex h-16 shrink-0 items-center">
-        <img
-          class="h-8 w-auto"
-          src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-          alt="Your Company"
-        />
+        {{ self.usuario }}
       </div>
       <nav class="flex flex-1 flex-col">
         <ul role="list" class="flex flex-1 flex-col gap-y-7">
@@ -247,18 +239,4 @@
       />
     </a>
   </div>
-
-  <main class="lg:pl-72">
-    <div class="xl:pl-96">
-      <div class="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">
-        <!-- Main area -->
-      </div>
-    </div>
-  </main>
-
-  <aside
-    class="fixed inset-y-0 left-72 hidden w-96 overflow-y-auto border-r border-gray-200 px-4 py-6 sm:px-6 lg:px-8 xl:block"
-  >
-    <!-- Secondary column (hidden on smaller screens) -->
-  </aside>
 </div>

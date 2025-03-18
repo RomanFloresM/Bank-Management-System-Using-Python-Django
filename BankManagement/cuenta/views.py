@@ -8,8 +8,8 @@ def index(request):
         user = request.POST['usuario']
         passw = request.POST['contrasena']
         validar = login(user=user, passw=passw)
-        if validar:
-            return render(request, 'menu.html')
+        if validar != 0:
+            return render(request, 'menu.html', {"username": user, "iduser": validar})
         else:
             return render(request, 'index.html', {"cuenta": user, "validar": validar})
     else:
@@ -18,8 +18,6 @@ def index(request):
 def login(user, passw):
     for temp in User.objects.all():
         if temp.nombre == user and temp.contra == passw:
-            return True
-    if user == "admin" and passw == "1234":
-        return True
-    else:
-        return False
+            return temp.id
+    return 0
+

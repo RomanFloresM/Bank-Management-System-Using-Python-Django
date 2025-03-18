@@ -9,3 +9,12 @@ class Transaction(models.Model):
     fecha = models.DateTimeField(auto_now_add=True)
     userOri = models.ForeignKey(User, on_delete=models.CASCADE)
     userDest = models.CharField(max_length=50)
+
+class BillUser(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    wallet = models.DecimalField(max_digits=10, decimal_places=2)
+    last_update = models.DateTimeField(auto_now_add=True)
+
+    def updateWallet(self, amount):
+        self.wallet += amount
+        self.save()

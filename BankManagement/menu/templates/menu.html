@@ -1,21 +1,50 @@
-{% load static %}
+{% load static %} 
 {% load viewcomponent_tags %}
+{% load static tailwind_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dino World</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-  <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet">
-</head>
-<body>
-  {% component 'Sidebar' as menu %}
-    {% call menu.Element ico='home' tittle='zzzz' url='zzzz'%}
-    {% endcall %}
-    {% call menu.Element ico='home' tittle='zzzz' url='zzzz'%}
-    {% endcall %}
-  {% endcomponent %}
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dino World</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet" />
+    {% tailwind_css %}
+  </head>
+  <body>
+
+    {% component 'Sidebar' usuario=username as menu %}
+
+      {% call menu.Element ico='home' tittle='Dashboard' url='zzzz'%}
+      {% endcall %}
+
+      {% call menu.Element ico='transfer' tittle='Transferir' url='#'%}
+      {% endcall %}
+
+      {% call menu.Element ico='admin' tittle='Administrar' url='#'%}
+      {% endcall %}
+
+      {% call menu.Element ico='settings' tittle='Configuracion' url='#'%}
+      {% endcall %}
+
+      {% call menu.Element ico='exit' tittle='Salir' url=''%}
+      {% endcall %}
+    
+    {% endcomponent %}
+    
+    <main class="lg:pl-72 justify-center">
+      <div class="xl:pl-80 justify-center">
+        <div class="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">
+          <!-- Main area -->
+          {% component 'Dashboard' usr=iduser usrname=username%}
+          {% endcomponent %}
+
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
