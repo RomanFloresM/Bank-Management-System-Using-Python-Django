@@ -35,16 +35,16 @@
       {% endcall %}
     
     {% endcomponent %}
-    
-    <main class="lg:pl-72 justify-center">
-      <div class="xl:pl-80 justify-center">
-        <div class="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">
-          <!-- Main area -->
-          {% component 'Dashboard' usr=iduser usrname=username%}
-          {% endcomponent %}
 
-        </div>
-      </div>
-    </main>
+    <div class="xl:pl-96">
+    {% if Error == True%}
+      <span style="color: crimson"> Valor incorrecto</span>
+    {%endif%}
+    </div>
+
+    {% component 'Dashboard' usr=iduser usrname=username%}
+    {% endcomponent %}
+    
+    
   </body>
 </html>

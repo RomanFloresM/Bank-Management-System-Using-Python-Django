@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from menu.models import BillUser
+from menu.models import BillUser, Transaction
 from cuenta.models import User
 from django.http import Http404
 from decimal import Decimal
@@ -16,13 +16,17 @@ def afectar(request):
             a = User.objects.get(id=usr)
             b = BillUser.objects.get(user=a)
             b.updateWallet(amount)
+            row = Transaction(tipo = 'abonar', estatus='concluido', monto=amount, userOri=a, userDest=a.nombre, concepto="auto-abono", referencia="auto-abono")
+            row.save()
             return render(request, 'menu.html', {"username": usrname, "iduser": usr})
         elif action == 'restar':
             a = User.objects.get(id=usr)
             b = BillUser.objects.get(user=a)
             if b.wallet < amount:
-                return render(request, 'menu.html', {"username": usrname, "iduser": usr})
+                return render(request, 'menu.html', {"username": usrname, "iduser": usr, "Error": True})
             b.updateWallet(amount*-1)
+            row = Transaction(tipo = 'abonar', estatus='concluido', monto=amount, userOri=a, userDest=a.nombre, concepto="auto-retiro", referencia="auto-retiro")
+            row.save()
             return render(request, 'menu.html', {"username": usrname, "iduser": usr})
 
 def restar(request):

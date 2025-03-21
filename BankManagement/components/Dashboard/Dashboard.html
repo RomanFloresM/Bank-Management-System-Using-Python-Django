@@ -1,9 +1,7 @@
-<main
-  class="relative z-0 flex-1 pb-8 px-6 bg-white flex justify-center items-center"
->
-  <div class="grid pb-10 mt-4 w-full max-w-4xl">
+<main class="lg:pl-72">
+  <div class="xl:pl-72">
     <!-- Start Content-->
-    <div class="mb-2">
+    <div class="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">
       <div
         class="grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-3"
       >
@@ -25,33 +23,38 @@
                 {{self.get_total_bill}}
               </h3>
 
-              <div class="flex space-x-4 mt-4 justify-center">
-                
-                <form action="{% url 'afectar' %}" method="post">
-                  {% csrf_token %}
-                  <input type="number" id="money" name="money"/>
-                  <input type="hidden" value={{self.usr}} name="idusu" id="idusu"/>
-                  <input type="hidden" value={{self.usrname}} name="usuName" id="usuName"/>
-                  <button
-                    class="shadow bg-indigo-800 hover:bg-indigo-700 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-4 rounded font-bold"
-                    name="abonar" 
-                    id="abonar"
-                    value="abonar"
-                  >
-                    Abonar
-                  </button>
-                  <button
+              <form action="{% url 'afectar' %}" method="post">
+                {% csrf_token %}
+                <input type="number" id="money" name="money" />
+                <input
+                  type="hidden"
+                  value="{{self.usr}}"
+                  name="idusu"
+                  id="idusu"
+                />
+                <input
+                  type="hidden"
+                  value="{{self.usrname}}"
+                  name="usuName"
+                  id="usuName"
+                />
+                <button
+                  class="shadow bg-indigo-800 hover:bg-indigo-700 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-4 rounded font-bold"
+                  name="abonar"
+                  id="abonar"
+                  value="abonar"
+                >
+                  Abonar
+                </button>
+                <button
                   class="shadow bg-indigo-800 hover:bg-indigo-700 focus:shadow-outline focus:outline-none text-white text-xs py-3 px-4 rounded font-bold"
                   name="abonar"
                   id="abonar"
                   value="restar"
                 >
-                  Request
+                  Retirar
                 </button>
-                </form>
-
-                
-              </div>
+              </form>
             </div>
           </div>
         </div>

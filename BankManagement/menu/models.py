@@ -9,6 +9,8 @@ class Transaction(models.Model):
     fecha = models.DateTimeField(auto_now_add=True)
     userOri = models.ForeignKey(User, on_delete=models.CASCADE)
     userDest = models.CharField(max_length=50)
+    concepto = models.CharField(max_length=50, blank=True)
+    referencia = models.CharField(max_length=50, blank=True)
 
 class BillUser(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
